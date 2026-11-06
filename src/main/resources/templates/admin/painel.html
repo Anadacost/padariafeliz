@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo | Pão & Felicidade</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+
+<body style="background-color: #fff8ed;">
+
+<div th:replace="~{fragments/header :: cabecalho}"></div>
+<div th:replace="~{fragments/mensagens :: mensagens}"></div>
+
+<main class="container py-5">
+
+  <h2 class="fw-bold mb-2" style="color: #5b2f21;">
+    Painel Administrativo
+  </h2>
+
+  <p class="text-secondary mb-4">
+    Bem-vindo ao sistema de gerenciamento da padaria.
+  </p>
+
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0 p-4">
+        <h5>Produtos cadastrados</h5>
+        <h2 class="fw-bold" style="color: #713f30;"
+            th:text="${totalProdutos ?: 0}">0</h2>
+        <a th:href="@{/admin/produtos}" class="btn btn-outline-dark">
+          Gerenciar produtos
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0 p-4">
+        <h5>Pedidos recebidos</h5>
+        <h2 class="fw-bold" style="color: #713f30;"
+            th:text="${totalPedidos ?: 0}">0</h2>
+        <a th:href="@{/admin/pedidos}" class="btn btn-outline-dark">
+          Ver pedidos
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0 p-4">
+        <h5>Agendamentos pendentes</h5>
+        <h2 class="fw-bold" style="color: #713f30;"
+            th:text="${totalAgendamentos ?: 0}">0</h2>
+        <a th:href="@{/admin/agendamentos}" class="btn btn-outline-dark">
+          Ver agendamentos
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card border-0 shadow-sm mt-5 p-4">
+    <h4 class="mb-3">Gerenciamento da padaria</h4>
+
+    <div class="d-flex flex-wrap gap-2">
+      <a th:href="@{/admin/produtos}" class="btn text-white"
+         style="background-color: #5b2f21;">
+        Produtos
+      </a>
+
+      <a th:href="@{/admin/pedidos}" class="btn text-white"
+         style="background-color: #5b2f21;">
+        Pedidos
+      </a>
+
+      <a th:href="@{/admin/agendamentos}" class="btn text-white"
+         style="background-color: #5b2f21;">
+        Agendamentos
+      </a>
+
+      <a th:href="@{/admin/clientes}" class="btn text-white"
+         style="background-color: #5b2f21;">
+        Clientes
+      </a>
+
+      <a th:href="@{/admin/food-to-save}" class="btn text-white"
+         style="background-color: #5b2f21;">
+        Food to Save
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<div th:replace="~{fragments/footer :: rodape}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
